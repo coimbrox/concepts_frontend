@@ -1,9 +1,13 @@
 import React from 'react';
 
-export default function Header() {
+//faço a desestruturação pois a onde esta title poderia estar o props e declararia no h1 props.title
+//Children propiedade criada pelo react que mostra todo o conteudo que a tag recebeu 
+export default function Header({ title, children }) {
   return (
     <header>
-      <h1>ReactJS</h1>
+      <h1>{title}</h1>
+
+      {children}
     </header>
   );
 }
