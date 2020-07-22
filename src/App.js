@@ -24,13 +24,22 @@ function App() {
   // 2- funçao para att o valor 
 
   //handle prefixo utilizado para lidar com ação do usuário
-  function handleAddProject() {
+  async function handleAddProject() {
 
     // ... para copiar as infos de uma variavel
-    setProjects([...projects, `Novo projeto ${Date.now()}`]);
+    // setProjects([...projects, `Novo projeto ${Date.now()}`]);
 
-    console.log(projects);
+    const response = await api.post('projects', {
+      title: `Novo projeto ${Date.now()}`,
+      name: "Coimbrox"
+    });
+
+    const project = response.data;
+
+    setProjects([...projects, project]);
+
   }
+
 
   return (
     // conceito de fragments
